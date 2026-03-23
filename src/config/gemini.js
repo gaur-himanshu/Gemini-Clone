@@ -8,7 +8,6 @@ import {
   HarmBlockThreshold,
 } from "@google/generative-ai";
 
-
 const MODEL_NAME = "gemini-3-flash-preview"; // Recommendation: Use 1.5 for better performance
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
