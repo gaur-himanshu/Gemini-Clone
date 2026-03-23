@@ -3,25 +3,37 @@ import runChat from "../config/gemini";
 export const Context = createContext();
 
 export default function ContextProvider(props) {
+  const [input, setInput] = useState("");
+  const [recentPrompt, setRecentPrompt] = useState("");
+  const [previousPrompts, setPreviousPrompts] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [resultData, setResultData] = useState("");
 
-    const [input, setInput] = useState("");
-    const [recentprompt, setRecentPrompt] = useState("");
-    const [previousPrompts, setPreviousPrompts] = useState([]);
-    const [showResults, setShowResults] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [resultData, setResultData] = useState("");
+  const onSent = async (prompt) => {
+    setResultData("");
+    setLoading(true);
+    setShowResults(true);
+    setRecentPrompt(input);
+    const response = await runChat(input);
+    setResultData(response);
+    setLoading(false);
+    setInput("");
+  };
 
-
-    const onSent = async (prompt) => {
-        await runChat(prompt);
-    }
-    
-    const contextValue = {
-        
-    }
+  const contextValue = {
+    previousPrompts,
+    setPreviousPrompts,
+    onSent,
+    setRecentPrompt,
+    recentPrompt,
+    showResults,
+    loading,
+    resultData,
+    input,
+    setInput,
+  };
   return (
-    <Context.Provider value={contextValue}>
-      {props.children}
-    </Context.Provider>
+    <Context.Provider value={contextValue}>{props.children}</Context.Provider>
   );
 }

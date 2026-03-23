@@ -6,7 +6,7 @@ import {
   GoogleGenerativeAI,
   HarmCategory,
   HarmBlockThreshold,
-}  from "@google/generative-ai";
+} from "@google/generative-ai";
 
 const MODEL_NAME = "gemini-3-flash-preview"; // Recommendation: Use 1.5 for better performance
 const API_KEY = "AIzaSyCmORMDQdBbOLddm3eikuJEBLvMrXm5p6g";
@@ -40,6 +40,7 @@ async function runChat(prompt) {
   const result = await chat.sendMessage(prompt);
   const response = await result.response;
   console.log(response.text());
+  return response.text();
 }
 
 export default runChat;
