@@ -1,16 +1,52 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Gemini Clone
+An AI chat interface built with **React** and **Vite**, powered by the **Google Gemini API**.
+## 🚀 Getting Started
+These are the steps to get a local copy up and running.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 1. Clone the Repository
 
-## React Compiler
+Open your terminal and run the following command:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+git clone <your-repository-url>
+cd gemini-clone
+```
 
-## Expanding the ESLint configuration
+### 2. Environment Configuration
+Create a `.env` file in the root directory and add your API key:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+``` env
+VITE_GEMINI_API_KEY=your_actual_api_key_here
+```
+
+### 3. Installation
+Install the necessary dependencies using npm:
+
+``` bash
+npm install
+```
+
+### 4. Development Server
+Launch the project locally:
+
+``` bash
+npm run dev
+```
+
+The app will be running at: http://localhost:5173
+------------------------------
+🛠️ Tech Stack
+
+* Frontend: React + Vite
+* AI Engine: Google Gemini API
+* Environment: Node.js
+
+📝 Project Notes
+
+* Make sure your API key is valid and has permissions for the Gemini API.
+* This template uses HMR (Hot Module Replacement) for a fast development experience.
+
+
+
