@@ -26,14 +26,13 @@ export default function ContextProvider(props) {
     setLoading(true);
     setShowResults(true);
     let response;
-    if( prompt!== undefined){
-        response = await runChat(prompt);
-        setRecentPrompt(prompt);
-    }
-    else{
-        setPreviousPrompts(prev=>[...prev,input]);
-        setRecentPrompt(input);
-        response = await runChat(input);
+    if (prompt !== undefined) {
+      response = await runChat(prompt);
+      setRecentPrompt(prompt);
+    } else {
+      setPreviousPrompts((prev) => [...prev, input]);
+      setRecentPrompt(input);
+      response = await runChat(input);
     }
     let responseArray = response.split("**");
     let newResponse = "";
